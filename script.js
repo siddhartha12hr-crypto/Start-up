@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, viewport-fit=cover">
+    <title>Company Profile</title>
+    <link rel="stylesheet" href="../fonts/fonts.css">
+    <link rel="stylesheet" href="../fonts/font-icons.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header-avt fixed-top">
+        <a href="dashboard.html" class="box-avt">
+            <div class="avt">
+                <img src="../images/avt/avt-1.jpg" alt="Company Logo">
+            </div>
+            <div class="content">
+                <span class="body-4 text-dark-4">Welcome back!</span>
+                <h4 class="name">Hello, Tech Corp <img class="icon" src="../images/icon/hello.png" alt=""></h4>
+            </div>
+        </a>
+        <div class="right">
+            <a class="box-icon" href="#notifications">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 6.44V9.77" stroke="#111827" stroke-width="1.5" stroke-linecap="round" />
+                    <path d="M12.02 2C8.34 2 5.36 4.98 5.36 8.66V10.76C5.36 11.44 5.08 12.46 4.73 13.04L3.46 15.16C2.68 16.47 3.22 17.93 4.66 18.41C9.44 20 14.61 20 19.39 18.41C20.74 17.96 21.32 16.38 20.59 15.16L19.32 13.04C18.97 12.46 18.69 11.43 18.69 10.76V8.66C18.68 5 15.68 2 12.02 2Z" stroke="#111827" stroke-width="1.5" stroke-linecap="round" />
+                    <path d="M15.33 18.82C15.33 20.65 13.83 22.15 12 22.15C11.09 22.15 10.25 21.77 9.65 21.17C9.05 20.57 8.67 19.73 8.67 18.82" stroke="#111827" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+            </a>
+            <a class="box-icon" href="#menu">
+                <svg width="22" height="22" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.5 10H17.5" stroke="#111827" stroke-width="1.5" stroke-linecap="round" />
+                    <path d="M2.5 5H17.5" stroke="#111827" stroke-width="1.5" stroke-linecap="round" />
+                    <path d="M2.5 15H17.5" stroke="#111827" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    <div class="app-content style-2">
+        <div class="tf-container">
+            <div class="profile-card">
+                <div class="profile-avatar">
+                    <img src="../images/avt/avt-1.jpg" alt="Company Logo">
+                </div>
+                <h4 class="profile-name">Tech Corp</h4>
+                <p class="body-2 profile-role">contact@techcorp.com</p>
+                <p class="body-4 text-dark-4">Industry: Technology • Building product-first teams across UX, engineering and ops.</p>
+                <div class="profile-actions">
+                    <a href="#" class="btn-secondary">Edit Profile</a>
+                    <a href="#" class="btn-outline">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="menubar-footer footer-fixed">
+        <ul class="inner-bar">
+            <li>
+                <a href="dashboard.html">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20.04 6.82L14.28 2.79C12.71 1.69 10.3 1.75 8.79 2.92L3.78 6.83C2.78 7.61 1.99 9.21 1.99 10.47V17.37C1.99 19.92 4.06 22 6.61 22H17.39C19.94 22 22.01 19.93 22.01 17.38V10.6C22.01 9.25 21.14 7.59 20.04 6.82Z" stroke="#111827" stroke-width="1.5" />
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="applicants.html">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 12.2H15" stroke="#111827" stroke-width="1.5" stroke-linecap="round" />
+                        <path d="M8 16.2H12.38" stroke="#111827" stroke-width="1.5" stroke-linecap="round" />
+                        <path d="M10 6H14C16 6 16 5 16 4C16 2 15 2 14 2H10C9 2 8 2 8 4C8 6 9 6 10 6Z" stroke="#111827" stroke-width="1.5" />
+                        <path d="M16 4.02C19.33 4.2 21 5.43 21 10V16C21 20 20 22 15 22H9C4 22 3 20 3 16V10C3 5.44 4.67 4.2 8 4.02" stroke="#111827" stroke-width="1.5" />
+                    </svg>
+                </a>
+            </li>
+            <li class="action-add">
+                <a href="post-task.html">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 12H18" stroke="white" stroke-width="1.5" stroke-linecap="round" />
+                        <path d="M12 18V6" stroke="white" stroke-width="1.5" stroke-linecap="round" />
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="messages.html">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.5 19H8C4 19 2 18 2 13V8C2 4 4 2 8 2H16C20 2 22 4 22 8V13C22 17 20 19 16 19H15.5C15.19 19 14.89 19.15 14.7 19.4L13.2 21.4C12.54 22.28 11.46 22.28 10.8 21.4L9.3 19.4C9.14 19.18 8.77 19 8.5 19Z" stroke="#111827" stroke-width="1.5" />
+                        <path d="M15.9965 11H16.0054" stroke="#111827" stroke-width="2" stroke-linecap="round" />
+                        <path d="M11.9955 11H12.0045" stroke="#111827" stroke-width="2" stroke-linecap="round" />
+                        <path d="M7.99451 11H8.00349" stroke="#111827" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                </a>
+            </li>
+            <li class="active">
+                <a href="profile.html">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="#2563EB" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12.16 10.87C12.06 10.86 11.94 10.86 11.83 10.87C9.45 10.79 7.56 8.84 7.56 6.44C7.56 3.99 9.54 2 12 2C14.45 2 16.44 3.99 16.44 6.44C16.43 8.84 14.54 10.79 12.16 10.87Z" stroke="#2563EB" stroke-width="1.5" />
+                        <path d="M7.16 14.56C4.74 16.18 4.74 18.82 7.16 20.43C9.91 22.27 14.42 22.27 17.17 20.43C19.59 18.81 19.59 16.17 17.17 14.56C14.43 12.73 9.92 12.73 7.16 14.56Z" stroke="#2563EB" stroke-width="1.5" />
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

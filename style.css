@@ -1,0 +1,213 @@
+
+
+const mockTasks = [
+  {
+    id: 1,
+    title: 'Senior UX Designer',
+    company: 'Tech Innovations',
+    tags: ['Design', 'Full Time', 'Remote'],
+    applicants: 24
+  },
+  {
+    id: 2,
+    title: 'Product Manager',
+    company: 'Creative Studio',
+    tags: ['Product', 'Hybrid', 'Senior'],
+    applicants: 18
+  }
+];
+
+const mockApplicants = [
+  {
+    id: 1,
+    name: 'Alex Johnson',
+    skills: ['React', 'UI/UX', 'Figma'],
+    task: 'Landing page redesign',
+    taskTitle: 'Landing Page Redesign Project',
+    taskDescription: 'Design a modern landing page...',
+    explanation: 'I researched and created wireframes...',
+    workType: 'design',
+    workImage: '../images/jobs/google.png',
+    plagiarism: 'low',
+    rating: 9.2,
+    avatar: '../images/avt/avt-1.jpg'
+  },
+  {
+    id: 2,
+    name: 'Sarah Williams',
+    skills: ['Product', 'Strategy'],
+    task: 'Product plan review',
+    taskTitle: 'Q2 Product Strategy',
+    taskDescription: 'Create roadmap...',
+    explanation: 'I analyzed market trends...',
+    workType: 'code',
+    workCode: 'const roadmap = { feature: "New Dashboard" };',
+    plagiarism: 'medium',
+    rating: 8.7,
+    avatar: '../images/avt/avt-1.jpg'
+  }
+];
+
+// 👉 MULTIPLE CHAT STORAGE
+const mockMessages = {
+  candidate: [
+    { type: 'received', text: 'Hey! I reviewed your task and I am interested.' },
+    { type: 'sent', text: 'Great, can you share more details about your availability?' },
+    { type: 'received', text: 'I am available this week for a quick call.' }
+  ],
+  candidate2: [
+    { type: 'received', text: 'Hi, I submitted my proposal.' }
+  ]
+};
+
+let currentApplicantId = null;
+let currentChat = 'candidate';
+
+// ---------------- DASHBOARD ----------------
+
+function loadDashboard() {
+  const container = document.querySelector('#active-tasks-container');
+  if (!container) return;
+
+  container.innerHTML = '';
+
+  mockTasks.forEach(task => {
+    const card = document.createElement('div');
+    card.className = 'card-job';
+
+    card.innerHTML = `
+      <h4>${task.title}</h4>
+      <p>${task.company}</p>
+      <small>${task.applicants} applicants</small>
+    `;
+
+    container.appendChild(card);
+  });
+}
+
+// ---------------- APPLICANTS ----------------
+
+function loadApplicants() {
+  const list = document.getElementById('applicants-list');
+  if (!list) return;
+
+  list.innerHTML = '';
+
+  mockApplicants.forEach(applicant => {
+    const card = document.createElement('div');
+    card.className = 'job-card';
+    card.id = `applicant-${applicant.id}`;
+
+    card.innerHTML = `
+      <h4>${applicant.name}</h4>
+      <p>${applicant.task}</p>
+      <button onclick="openApplicantModal(${applicant.id})">View</button>
+    `;
+
+    list.appendChild(card);
+  });
+}
+
+// ---------------- MODAL ----------------
+
+function openApplicantModal(id) {
+  const applicant = mockApplicants.find(a => a.id === id);
+  if (!applicant) return;
+
+  currentApplicantId = id;
+
+  document.getElementById('modal-name').textContent = applicant.name;
+  document.getElementById('modal-task-title').textContent = applicant.taskTitle;
+  document.getElementById('modal-explanation').textContent = applicant.explanation;
+
+  document.getElementById('applicant-modal').classList.add('active');
+}
+
+function closeApplicantModal() {
+  document.getElementById('applicant-modal').classList.remove('active');
+}
+
+// ---------------- MESSAGES ----------------
+
+function loadMessages() {
+  const container = document.getElementById('chat-messages');
+  if (!container) return;
+
+  container.innerHTML = '';
+
+  const messages = mockMessages[currentChat] || [];
+
+  messages.forEach(msg => {
+    const bubble = document.createElement('div');
+    bubble.className = `chat-bubble ${msg.type}`;
+    bubble.textContent = msg.text;
+    container.appendChild(bubble);
+  });
+
+  container.scrollTop = container.scrollHeight;
+}
+
+function sendMessage(e) {
+  e.preventDefault();
+
+  const input = document.getElementById('chat-input');
+  const text = input.value.trim();
+  if (!text) return;
+
+  if (!mockMessages[currentChat]) {
+    mockMessages[currentChat] = [];
+  }
+
+  mockMessages[currentChat].push({
+    type: 'sent',
+    text: text
+  });
+
+  input.value = '';
+  loadMessages();
+
+  // fake reply
+  setTimeout(() => {
+    mockMessages[currentChat].push({
+      type: 'received',
+      text: 'Thanks! I will get back to you.'
+    });
+    loadMessages();
+  }, 800);
+}
+
+// ---------------- INIT ----------------
+
+function initCompanyPanel() {
+  loadDashboard();
+  loadApplicants();
+  loadMessages();
+
+  // CHAT SWITCHING
+  const chatItems = document.querySelectorAll(".chat-item");
+
+  chatItems.forEach(item => {
+    item.addEventListener("click", () => {
+      chatItems.forEach(i => i.classList.remove("active"));
+      item.classList.add("active");
+
+      currentChat = item.getAttribute("data-chat");
+      loadMessages();
+    });
+  });
+
+  // SEND MESSAGE
+  const chatForm = document.getElementById('chat-form');
+  if (chatForm) {
+    chatForm.addEventListener('submit', sendMessage);
+  }
+
+  // CLOSE MODAL
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeApplicantModal();
+  });
+}
+
+// ---------------- START ----------------
+
+document.addEventListener('DOMContentLoaded', initCompanyPanel);
